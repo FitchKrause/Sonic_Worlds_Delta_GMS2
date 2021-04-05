@@ -56,8 +56,8 @@ if(FlagAllowLanding){
 	
 	///Check both edges. If they collide, we can check angle.
 	if(!Ground && Ysp >= 0 && get_collision_sensor_bottom_big(player_collision_layer_list()) && 
-	get_collision_sensor_edge_left(player_collision_layer_list()) && 
-	get_collision_sensor_edge_right(player_collision_layer_list())){
+	(get_collision_sensor_edge_left(player_collision_layer_list()) || 
+	get_collision_sensor_edge_right(player_collision_layer_list()))){
 		Angle	=	player_get_angle();
 	}
 	
