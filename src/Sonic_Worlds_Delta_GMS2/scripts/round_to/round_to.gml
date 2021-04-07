@@ -6,7 +6,7 @@ function				round_to(variable, value){
 	var result;
 	
 	///Update
-	result	=	round(variable * value) / value;
+	result	=	round(variable / value) * value;
 	
 	///Return
 	return	result;

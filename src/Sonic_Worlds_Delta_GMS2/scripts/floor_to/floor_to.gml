@@ -6,7 +6,7 @@ function				floor_to(variable, value){
 	var result;
 	
 	///Update
-	result	=	floor(variable * value) / value;
+	result	=	floor(variable / value) * value;
 	
 	///Return
 	return	result;

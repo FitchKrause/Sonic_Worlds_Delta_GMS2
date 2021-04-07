@@ -1,4 +1,4 @@
-///@description Update
+///@description Step Update
 ///Variables
 if(FlagAllowInput){
 	///Direction

@@ -23,20 +23,20 @@
 	///Deceleration
 	if(Ground){
 		if(Xsp < 0 && Input.KeyRight){
-			Xsp	+=	Dcc;
+			Xsp	=	min(Xsp + Dcc, 0);
 		}
 		if(Xsp > 0 && Input.KeyLeft){
-			Xsp	-=	Dcc;
+			Xsp	=	max(Xsp - Dcc, 0);
 		}
 	}
 	
 	///Friction
 	if(Ground){
-		if(!Input.KeyLeft && !Input.KeyRight){
-			Xsp	-=	min(abs(Xsp), Frc) * sign(Xsp);
-			if(abs(Xsp) < 0.05){
-				Xsp	=	0;
-			}
+		if(Xsp < 0 && !Input.KeyLeft){
+			Xsp	=	min(Xsp + Frc, 0);
+		}
+		if(Xsp > 0 && !Input.KeyRight){
+			Xsp	=	max(Xsp - Frc, 0);
 		}
 	}
 	
@@ -47,21 +47,6 @@
 	if(Xsp > 0 && get_collision_sensor_right_big(player_collision_layer_list())){
 		Xsp		=	0;
 	}
-	
-///Slopes Deceleration/Acceleration
-if(Ground){
-	if(Angle > 35 && Angle < 325){
-		///Deceleration
-		if(abs(Xsp) <= TopSp){
-			Xsp	-=	dsin(Angle) * SlopeF;
-		}
-		
-		///Acceleration
-		if(abs(Xsp) > TopSp){
-			Xsp	-=	dsin(Angle) * SlopeF;
-		}
-	}
-}
 
 ///Control Y
 	///Gravitation

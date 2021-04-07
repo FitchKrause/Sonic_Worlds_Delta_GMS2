@@ -10,7 +10,7 @@
 			var result;
 		
 			///Update
-			result	=	floor(pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * pos_offset_y));
+			result	=	(pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * pos_offset_y));
 		
 			///Return
 			return	result;
@@ -26,7 +26,7 @@
 			var result;
 		
 			///Update
-			result	=	floor(pos_y + (dcos(pos_angle) * pos_offset_y) - (dsin(pos_angle) * pos_offset_x));
+			result	=	(pos_y + (dcos(pos_angle) * pos_offset_y) - (dsin(pos_angle) * pos_offset_x));
 		
 			///Return
 			return	result;
@@ -44,7 +44,7 @@
 			var result;
 		
 			///Update
-			result	=	floor(pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * (pos_offset_y + offset_distance)));
+			result	=	(pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * (pos_offset_y + offset_distance)));
 		
 			///Return
 			return	result;
@@ -61,7 +61,7 @@
 			var result;
 		
 			///Update
-			result	=	floor(pos_y + (dcos(pos_angle) * (pos_offset_y + offset_distance)) - (dsin(pos_angle) * pos_offset_x));
+			result	=	(pos_y + (dcos(pos_angle) * (pos_offset_y + offset_distance)) - (dsin(pos_angle) * pos_offset_x));
 		
 			///Return
 			return	result;
@@ -81,7 +81,7 @@
 			var result;
 		
 			///Update
-			result	=	min(max(floor(pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * pos_offset_y)), min_pos_x), max_pos_x);
+			result	=	min(max((pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * pos_offset_y)), min_pos_x), max_pos_x);
 		
 			///Return
 			return	result;
@@ -99,7 +99,7 @@
 			var result;
 		
 			///Update
-			result	=	min(max(floor(pos_y + (dcos(pos_angle) * pos_offset_y) - (dsin(pos_angle) * pos_offset_x)), max_pos_y), min_pos_y);
+			result	=	min(max((pos_y + (dcos(pos_angle) * pos_offset_y) - (dsin(pos_angle) * pos_offset_x)), min_pos_y), max_pos_y);
 		
 			///Return
 			return	result;
@@ -119,7 +119,7 @@
 			var result;
 		
 			///Update
-			result	=	min(max(floor(pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * (pos_offset_y + offset_distance))), max_pos_x), min_pos_x);
+			result	=	min(max((pos_x + (dcos(pos_angle) * pos_offset_x) + (dsin(pos_angle) * (pos_offset_y + offset_distance))), min_pos_x), max_pos_x);
 		
 			///Return
 			return	result;
@@ -138,7 +138,7 @@
 			var result;
 		
 			///Update
-			result	=	min(max(floor(pos_y + (dcos(pos_angle) * (pos_offset_y + offset_distance)) - (dsin(pos_angle) * pos_offset_x)), max_pos_y), min_pos_y);
+			result	=	min(max((pos_y + (dcos(pos_angle) * (pos_offset_y + offset_distance)) - (dsin(pos_angle) * pos_offset_x)), min_pos_y), max_pos_y);
 		
 			///Return
 			return	result;
