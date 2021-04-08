@@ -76,19 +76,4 @@ if(Input.KeyRight){
 	Direction	=	1;
 }
 
-if(Player.Ground){
-	VisualAngle	=	Player.Angle;
-}else{
-	if(Player.Angle < 180){
-		VisualAngle -=	2.8125;
-		if(VisualAngle < 0){
-			VisualAngle	=	0;
-		}
-	}
-	if(Player.Angle >= 180){
-		VisualAngle +=	2.8125;
-		if(VisualAngle > 360){
-			VisualAngle	=	0;
-		}
-	}
-}
+VisualAngle	=	Player.Angle;
