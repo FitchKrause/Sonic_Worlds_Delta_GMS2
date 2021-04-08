@@ -72,7 +72,7 @@ if(FlagAllowInput){
 		if(keyboard_check_pressed(ord("A"))){
 			KeyPressA		=	true;
 		}else{
-			KeyPressUp		=	false;
+			KeyPressA		=	false;
 		}
 		
 		///Key B

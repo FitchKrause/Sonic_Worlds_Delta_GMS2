@@ -5,7 +5,7 @@
 	Ysp	=	clamp(Ysp, -MaxSp, MaxSp);
 	
 	///Deactivate Landing Flag
-	Landed	=	false;
+	Landed		=	false;
 	
 	///Ground Speed
 	if(Ground){
@@ -55,17 +55,25 @@
 	
 ///Land
 if(FlagAllowLanding){
-	///Set Ground State
+	///Set Grounding State
 	if(Ysp >= 0 && !Ground && get_collision_sensor_bottom_big(player_collision_layer_list())){
-		Landed		=	true;
 		LandedSpeed	=	Ysp;
+		Landed		=	true;
+		Ground		=	true;
+	}
+	
+	///Set Ceiling State
+	if(Ysp <= 0 && !Ground && get_collision_sensor_top_big(player_collision_layer_list())){
+		LandedSpeed	=	Ysp;
+		Landed		=	true;
 		Ground		=	true;
 	}
 }
 
 ///Landing
 if(Landed){
-	///Ground Landing
+	///Ground
+	if(Ysp > 0){
 		///Check both edges. If they collide, we can check angle.
 		if(get_collision_sensor_edge_left(player_collision_layer_list()) || get_collision_sensor_edge_right(player_collision_layer_list())){
 			Angle		=	player_get_angle();
@@ -75,16 +83,32 @@ if(Landed){
 		if(Ground){
 			Ysp			=	0;
 		}
-
-	///Ceiling Landing.
-	///Calculate Landing Speed.
-		if(((Angle >= 22.5 && Angle < 45) || (Angle > 315 && Angle <= 337.5))){
+		
+		///Calculate Landing Speed.
+		if(((Angle >= 24 && Angle <= 45) || (Angle >= 316 && Angle <= 338))){
 			Xsp	=	-dsin(Angle) * (LandedSpeed * LandingCnvrF);
 		}
 
-		if(((Angle >= 45 && Angle < 90) || (Angle > 270 && Angle <= 315))){
+		if(((Angle >= 46 && Angle <= 90) || (Angle >= 271 && Angle <= 315))){
 			Xsp	=	-dsin(Angle) * LandedSpeed;
 		}
+	}else{
+	///Ceil
+		Angle			=	180;
+		///Check both edges. If they collide, we can check angle.
+		if(get_collision_sensor_edge_left(player_collision_layer_list()) || get_collision_sensor_edge_right(player_collision_layer_list())){
+			Angle		=	player_get_angle();
+		}
+		
+		///Calculate Landing Speed.
+		if(Angle >= 136 && Angle <= 225){
+			Xsp	=	-dsin(Angle) * (LandedSpeed * LandingCnvrF);
+		}
+
+		if(((Angle >= 91 && Angle <= 135) || (Angle >= 226 && Angle <= 270))){
+			Xsp	=	-dsin(Angle) * LandedSpeed;
+		}
+	}
 }
 
 ///Slopes.
@@ -95,7 +119,6 @@ if(Ground){
 		PosY	+=	dcos(Angle);
 	}
 		
-	
 	///Slopes Up.
 	while(get_collision_sensor_main(player_collision_layer_list())){
 		PosX	-=	dsin(Angle);
@@ -104,11 +127,10 @@ if(Ground){
 }
 	
 ///Surface Angle Detection
-if(Ground && get_collision_sensor_bottom_big(player_collision_layer_list())){
-	if(get_collision_sensor_edge_left(player_collision_layer_list()) && get_collision_sensor_edge_right(player_collision_layer_list())){
+	if(Ground && get_collision_sensor_bottom_big(player_collision_layer_list()) && 
+	get_collision_sensor_edge_left(player_collision_layer_list()) && get_collision_sensor_edge_right(player_collision_layer_list())){
 		Angle		=	player_get_angle();
 	}
-}
 
 ///Falling
 	///Slow down when going uphill and speed up when going downhill (slope factor).
