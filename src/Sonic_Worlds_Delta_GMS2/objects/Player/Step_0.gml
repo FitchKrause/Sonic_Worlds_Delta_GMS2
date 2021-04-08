@@ -1,5 +1,10 @@
 ///@description Step Update
 ///Start Movement
+	///Limit Decimals
+	Xsp		=	decimal_floor_to(Xsp, 10000);
+	Ysp		=	decimal_floor_to(Ysp, 10000);
+	Angle	=	decimal_floor_to(Angle, 10000);
+	
 	///Limit Speed
 	Xsp	=	clamp(Xsp, -MaxSp, MaxSp);
 	Ysp	=	clamp(Ysp, -MaxSp, MaxSp);
@@ -74,6 +79,7 @@ if(FlagAllowLanding){
 if(Landed){
 	///Ground
 	if(Ysp > 0){
+		Angle			=	0;
 		///Check both edges. If they collide, we can check angle.
 		if(get_collision_sensor_edge_left(player_collision_layer_list()) || get_collision_sensor_edge_right(player_collision_layer_list())){
 			Angle		=	player_get_angle();
@@ -85,11 +91,11 @@ if(Landed){
 		}
 		
 		///Calculate Landing Speed.
-		if(((Angle >= 24 && Angle <= 45) || (Angle >= 316 && Angle <= 338))){
+		if(((Angle >= 22.5 && Angle <= 45) || (Angle >= 316 && Angle <= 337.5))){
 			Xsp	=	-dsin(Angle) * (LandedSpeed * LandingCnvrF);
 		}
 
-		if(((Angle >= 46 && Angle <= 90) || (Angle >= 271 && Angle <= 315))){
+		if(((Angle >= 45 && Angle <= 90) || (Angle >= 270 && Angle <= 315))){
 			Xsp	=	-dsin(Angle) * LandedSpeed;
 		}
 	}else{
@@ -101,11 +107,11 @@ if(Landed){
 		}
 		
 		///Calculate Landing Speed.
-		if(Angle >= 136 && Angle <= 225){
+		if(Angle >= 135 && Angle <= 225){
 			Xsp	=	-dsin(Angle) * (LandedSpeed * LandingCnvrF);
 		}
 
-		if(((Angle >= 91 && Angle <= 135) || (Angle >= 226 && Angle <= 270))){
+		if(((Angle >= 90 && Angle <= 135) || (Angle >= 225 && Angle <= 270))){
 			Xsp	=	-dsin(Angle) * LandedSpeed;
 		}
 	}
