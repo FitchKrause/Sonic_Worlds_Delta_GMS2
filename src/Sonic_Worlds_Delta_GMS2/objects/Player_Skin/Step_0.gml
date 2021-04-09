@@ -76,4 +76,4 @@ if(Input.KeyRight){
 	Direction	=	1;
 }
 
-VisualAngle	=	Player.Angle;
+VisualAngle	=	floor(Player.Angle);
