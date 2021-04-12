@@ -1,20 +1,20 @@
 ///@description Step Update
 ///Start Movement
 	///Limit Decimals
-	Xsp						=	decimal_floor_to(Xsp, 10000);
-	Ysp						=	decimal_floor_to(Ysp, 10000);
-	Angle					=	decimal_floor_to(Angle, 10000);
+	Xsp				=	decimal_floor_to(Xsp, 10000);
+	Ysp				=	decimal_floor_to(Ysp, 10000);
+	Angle			=	decimal_floor_to(Angle, 10000);
 	
 	///Limit Speed
-	Xsp						=	clamp(Xsp, -MaxSp, MaxSp);
-	Ysp						=	clamp(Ysp, -MaxSp, MaxSp);
+	Xsp				=	clamp(Xsp, -MaxSp, MaxSp);
+	Ysp				=	clamp(Ysp, -MaxSp, MaxSp);
 	
 	///Deactivate Landing Flag
-	Landed					=	false;
+	Landed			=	false;
 	
 	///Ground Speed
 	if(Ground == true){
-		Gsp					=	Xsp;
+		Gsp			=	Xsp;
 	}
 	
 ///X and Y Movement
@@ -63,8 +63,8 @@ if(FlagAllowLanding == true){
 	if(Ground == false){
 		///Set LandingState
 		if(get_collision_sensor_bottom_big(player_collision_layer_list()) && get_collision_sensor_floor_edge_center(player_collision_layer_list())) || (get_collision_sensor_top_big(player_collision_layer_list()) && get_collision_sensor_ceil_edge_center(player_collision_layer_list())){
-			LandedSpeed					=	Ysp;
-			Landed						=	true;
+			LandedSpeed		=	Ysp;
+			Landed			=	true;
 		}
 	}
 }
@@ -107,13 +107,13 @@ if(Landed == true){
 			
 			///Calculate Landing Speed.
 			if(Angle >= 135 && Angle <= 225){
-				Xsp				=	-dsin(Angle) * LandedSpeed;
+				Xsp			=	-dsin(Angle) * LandedSpeed;
 			}
 	
 			///Land
 			if(get_collision_sensor_bottom_big(player_collision_layer_list())){
-				Ysp				=	0;
-				Ground			=	true;
+				Ysp			=	0;
+				Ground		=	true;
 			}
 		}
 	}
