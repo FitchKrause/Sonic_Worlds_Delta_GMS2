@@ -17,7 +17,7 @@
 	LandingCnvrF			=	0.5;
 	SlopeF					=	0.152;
 	TopSp					=	6;
-	MaxSp					=	16;
+	MaxSp					=	24;
 	Fall					=	2.5;
 	Grv						=	0.21875;
 	

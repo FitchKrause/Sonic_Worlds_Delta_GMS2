@@ -14,7 +14,7 @@ if(CameraState == CameraModes.Normal){
 	}
 		
 	if(Player.Ground == false){
-		if(CameraY > CameraMinY + GameWindowCenterHeight && Player.PosY < CameraY - 48 + ShiftY + ShiftYSpeed){CameraY	+=	max(-16, Player.PosY - CameraY + 48 - ShiftY - ShiftYSpeed);}
+		if(CameraY > CameraMinY + GameWindowCenterHeight && Player.PosY < CameraY - 24 + ShiftY + ShiftYSpeed){CameraY	+=	max(-16, Player.PosY - CameraY + 24 - ShiftY - ShiftYSpeed);}
 		if(CameraY < CameraMaxY - GameWindowCenterHeight && Player.PosY > CameraY + ShiftY + ShiftYSpeed + 24){CameraY	+=	max(0, min(16, Player.PosY - CameraY - ShiftY - 24) - ShiftYSpeed);}
 	}
 		
