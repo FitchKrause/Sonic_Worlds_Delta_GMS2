@@ -1,24 +1,23 @@
 ///@description End Step Update
 ///Animation System
+	///Change Animation
 	if(Animation != AnimationToBeSet){
 		Animation						=	AnimationToBeSet;
 		AnimSubimageDurationTimer		=	AnimDurationSet;
-		AnimSubimage					=	1;
 		AnimSubimageNumber				=	sprite_get_number(Animation);
 		AnimSubimageLoop				=	AnimSubimageLoopSet;
+		AnimSubimage					=	1;
 	}else{
+		///Subimage Handlign
 		if(AnimSubimageDurationTimer > 0){
 			AnimSubimageDurationTimer	--;
 		}else{
 			if(AnimSubimage > AnimSubimageNumber){
-				if(AnimSubimageLoop == -1){
-					AnimSubimage		=	1;
-				}else{
-					AnimSubimage		=	AnimSubimageLoop;
-				}
+				AnimSubimage	=	1;
 			}
-			AnimSubimage				++;
 			
+			///Move To Next Subimage
+			AnimSubimage				++;
 			AnimSubimageDurationTimer	=	AnimDurationSet;
 		}
 	}

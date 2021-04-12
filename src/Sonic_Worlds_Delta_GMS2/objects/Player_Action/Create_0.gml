@@ -1,8 +1,17 @@
 ///@description Initialization
+///States
+enum Action{
+	Normal,
+	Jump,
+	Roll,
+	Spindash,
+	LookUp,
+	Crouch,
+}
+
 ///Variables
-	Action	=	0;
-	
-	SpinRev	=	0
+	SpinRev		=	0
+	State		=	Action.Normal;
 	
 ///Constants
 	///Jump

@@ -59,7 +59,7 @@
     "spriteId": {"name":"spr_skin_sonic_spindash","path":"sprites/spr_skin_sonic_spindash/spr_skin_sonic_spindash.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 12.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

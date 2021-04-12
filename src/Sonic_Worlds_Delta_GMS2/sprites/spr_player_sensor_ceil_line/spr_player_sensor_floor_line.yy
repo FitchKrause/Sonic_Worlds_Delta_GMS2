@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","path":"sprites/spr_player_sensor_line/spr_player_sensor_line.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","path":"sprites/spr_player_sensor_line/spr_player_sensor_line.yy",},"LayerId":{"name":"2f87a2a9-68af-4d72-9ffa-f7a87757460b","path":"sprites/spr_player_sensor_line/spr_player_sensor_line.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_sensor_line","path":"sprites/spr_player_sensor_line/spr_player_sensor_line.yy",},"resourceVersion":"1.0","name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","path":"sprites/spr_player_sensor_floor_line/spr_player_sensor_floor_line.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","path":"sprites/spr_player_sensor_floor_line/spr_player_sensor_floor_line.yy",},"LayerId":{"name":"2f87a2a9-68af-4d72-9ffa-f7a87757460b","path":"sprites/spr_player_sensor_floor_line/spr_player_sensor_floor_line.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_player_sensor_floor_line","path":"sprites/spr_player_sensor_floor_line/spr_player_sensor_floor_line.yy",},"resourceVersion":"1.0","name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_player_sensor_line","path":"sprites/spr_player_sensor_line/spr_player_sensor_line.yy",},
+    "spriteId": {"name":"spr_player_sensor_floor_line","path":"sprites/spr_player_sensor_floor_line/spr_player_sensor_floor_line.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f7953926-2a03-43af-94ba-acd54f58ca15","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","path":"sprites/spr_player_sensor_line/spr_player_sensor_line.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f7953926-2a03-43af-94ba-acd54f58ca15","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ee3ddf49-916a-46f8-acea-6987f0f363b6","path":"sprites/spr_player_sensor_floor_line/spr_player_sensor_floor_line.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 1,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_player_sensor_line","path":"sprites/spr_player_sensor_line/spr_player_sensor_line.yy",},
+    "parent": {"name":"spr_player_sensor_floor_line","path":"sprites/spr_player_sensor_floor_line/spr_player_sensor_floor_line.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_player_sensor_line",
+    "name": "spr_player_sensor_floor_line",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprite/Engine Controllers/Player/Sensor masks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_player_sensor_line",
+  "name": "spr_player_sensor_floor_line",
   "tags": [],
   "resourceType": "GMSprite",
 }
