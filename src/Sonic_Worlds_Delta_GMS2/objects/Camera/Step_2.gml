@@ -24,10 +24,10 @@ if(CameraState == CameraModes.Normal){
 }
 
 ///If Camera is outside of a boundary, scroll back in.
-if(CameraX <= CameraMinX + GameWindowCenterWidth){CameraX	=	min(CameraX + 2, CameraMinX + GameWindowCenterWidth);}
-if(CameraX >= CameraMaxX - GameWindowCenterWidth){CameraX	=	max(CameraX - 2, CameraMaxX - GameWindowCenterWidth);}
-if(CameraY <= CameraMinY + GameWindowCenterHeight){CameraY	=	min(CameraY + 2, CameraMinY + GameWindowCenterHeight);}
-if(CameraY >= CameraMaxY - GameWindowCenterHeight){CameraY	=	max(CameraY - 2, CameraMaxY - GameWindowCenterHeight);}
+if(CameraX <= CameraMinX + GameWindowCenterWidth){CameraX	=	min(CameraX + 16, CameraMinX + GameWindowCenterWidth);}
+if(CameraX >= CameraMaxX - GameWindowCenterWidth){CameraX	=	max(CameraX - 16, CameraMaxX - GameWindowCenterWidth);}
+if(CameraY <= CameraMinY + GameWindowCenterHeight){CameraY	=	min(CameraY + 16, CameraMinY + GameWindowCenterHeight);}
+if(CameraY >= CameraMaxY - GameWindowCenterHeight){CameraY	=	max(CameraY - 16, CameraMaxY - GameWindowCenterHeight);}
 
 ///Move the literal camera position.
 camera_set_view_pos(GameView, CameraX - GameWindowCenterWidth, CameraY - GameWindowCenterHeight);
