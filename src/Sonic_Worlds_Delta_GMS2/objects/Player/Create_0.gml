@@ -2,6 +2,7 @@
 ///Variables
 	PosX					=	Player_Start_Point.x + 16;
 	PosY					=	Player_Start_Point.y + 16;
+	KeyXDir					=	0;
 	Xsp						=	0;
 	Gsp						=	0;
 	Ysp						=	0;

@@ -2,7 +2,7 @@
 ///Variables
 GroundSpeed	=	abs(Player.Gsp);
 
-///Mode
+///Angle Mode
 if(Player.Ground){
 	if(Player.Angle >= 0 && Player.Angle <= 45){		AngleMode	=	0}
 	if(Player.Angle >= 46 && Player.Angle <= 134){		AngleMode	=	1}
@@ -26,21 +26,21 @@ if(AngleMode == 1 || AngleMode == 2){AnimOffsetY	=	1}else{AnimOffsetY	=	0}
 	}
 
 	///Walk
-	if(GroundSpeed > 0 && GroundSpeed < 6){
+	if(GroundSpeed > 0 && GroundSpeed <= 6){
 		AnimationToBeSet		=	spr_skin_sonic_walk;
 		AnimDurationSet			=	floor(max(0, 8 - GroundSpeed));
 		AnimSubimageLoopSet		=	-1;
 	}
 	
 	///Run
-	if(GroundSpeed >= 6 && GroundSpeed < 12){
+	if(GroundSpeed > 6 && GroundSpeed <= 12){
 		AnimationToBeSet		=	spr_skin_sonic_run;
 		AnimDurationSet			=	floor(max(0, 8 - GroundSpeed));
 		AnimSubimageLoopSet		=	-1;
 	}
 	
 	///Peelout Run
-	if(GroundSpeed >= 12){
+	if(GroundSpeed > 12){
 		AnimationToBeSet		=	spr_skin_sonic_peelout_run;
 		AnimDurationSet			=	floor(max(0, 0));
 		AnimSubimageLoopSet		=	-1;

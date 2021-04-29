@@ -1,70 +1,62 @@
 ///@description End Step Update
+///Key Direction
+KeyXDir	=	Input.KeyRight - Input.KeyLeft;
+
 ///Control X
+if(KeyXDir != 0){
 	///Acceleration
-	if(Ground){
-		if(Xsp >= -TopSp && Input.KeyLeft){
-			Xsp	-=	Acc;
-		}
-		if(Xsp <= TopSp && Input.KeyRight){
-			Xsp	+=	Acc;
+	if(abs(Xsp) <= TopSp){
+		if(Ground){
+			///Ground Acceleration
+			Xsp	+=	(Acc * KeyXDir);
+		}else{
+			///Air Acceleration
+			Xsp	+=	(AirAcc * KeyXDir);
 		}
 	}
+		
+	///Ground Deceleration
+	if(abs(Xsp) > 0 && KeyXDir != sign(Xsp)){
+		if(Ground){
+			Xsp -=	min(abs(Xsp), Dcc) * sign(Xsp);
+		}
+	}
+}else{
+	///Ground Friction
+	if(abs(Xsp) > 0){
+		if(Ground){
+			Xsp -=	min(abs(Xsp), Frc) * sign(Xsp);
+		}
+	}
+}
 	
-	///Acceleration in air
-	if(!Ground){
-		if(Xsp >= -TopSp && Input.KeyLeft){
-			Xsp	-= AirAcc;
-		}
-		if(Xsp <= TopSp && Input.KeyRight){
-			Xsp	+= AirAcc;
-		}
-	}
-	
-	///Deceleration
-	if(Ground){
-		if(Xsp < 0 && Input.KeyRight){
-			Xsp	=	min(Xsp + Dcc, 0);
-		}
-		if(Xsp > 0 && Input.KeyLeft){
-			Xsp	=	max(Xsp - Dcc, 0);
-		}
-	}
-	
-	///Friction
-	if(Ground){
-		if(Xsp < 0 && !Input.KeyLeft){
-			Xsp	=	min(Xsp + Frc, 0);
-		}
-		if(Xsp > 0 && !Input.KeyRight){
-			Xsp	=	max(Xsp - Frc, 0);
-		}
-	}
-	
-	///Stop when player touch the walls
-	if(Xsp < 0 && get_collision_sensor_left_big(player_collision_layer_list())){
-		Xsp		=	0;
-	}
-	if(Xsp > 0 && get_collision_sensor_right_big(player_collision_layer_list())){
-		Xsp		=	0;
-	}
+///Stop when player touch the walls
+if(Xsp < 0 && get_collision_sensor_left_big(player_collision_layer_list())){
+	Xsp		=	0;
+}
+if(Xsp > 0 && get_collision_sensor_right_big(player_collision_layer_list())){
+	Xsp		=	0;
+}
 
 ///Control Y
-	///Gravitation
-	if(!Ground){
-		Ysp	+= Grv;
-	}
-	
-	///Air Drag
-	if(!Ground && (Ysp < 0 && Ysp > -4)){
-		Xsp		-=	floor(Xsp / 0.125) / 256;
-	}
-	
-	///Stop when player touch the ceil
-	if(!Ground && Ysp < 0 && get_collision_sensor_top_big(player_collision_layer_list())){
-		Ysp	=	0;
-	}
-	
-	///Stop when player touch the floor
+	///Y Ground Movement
 	if(Ground){
+		///Stop when player touch the floor
 		Ysp	=	0;
+	}
+	
+	///Y Air Movement
+	if(!Ground){
+		///Gravitattion
+		Ysp	+= Grv;
+		
+		///Air Drag
+		if(Ysp < 0 && Ysp > -4){
+			Xsp		-=	floor(Xsp / 0.125) / 256;
+		}
+		
+		///Stop when player touch the ceil
+		if(Ysp <= 0 && get_collision_sensor_top_big(player_collision_layer_list())){
+			Ysp	=	0;
+		}
 	}

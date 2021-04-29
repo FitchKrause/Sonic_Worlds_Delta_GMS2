@@ -50,6 +50,8 @@ if(State == Action.Jump){
 
 ///Spindash
 if(State == Action.Spindash){
+	Player.Xsp		=	0;
+	
 	///Roll if the player isn't holding down anymore
 	if(!Input.KeyDown){
 		State		=	Action.Normal;
@@ -63,6 +65,6 @@ if(State == Action.Spindash){
 	
 	///If not, slowly decrease the revs
 	if(!Input.KeyPressAction){
-		SpinRev		= max(SpinRev - SpinLose, MinSpinRev);
+		SpinRev		=	max(SpinRev - SpinLose, MinSpinRev);
 	}
 }
